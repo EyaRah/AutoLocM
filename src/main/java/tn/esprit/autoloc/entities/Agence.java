@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "agence")
 @Getter
@@ -24,4 +27,9 @@ public class Agence {
     private String adresse;
     @Column(nullable = false, length = 20)
     private String telephone;
+    @OneToMany(mappedBy = "agence")
+    Set<Employe>  employees = new HashSet<>();
+    @OneToMany(mappedBy = "agence")
+    Set<Vehicule>  vehicules = new HashSet<>();
+
 }
