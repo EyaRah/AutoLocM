@@ -1,5 +1,4 @@
 package tn.esprit.autoloc.services;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.entities.Paiement;
@@ -16,29 +15,16 @@ public class PaiementServiceImpl implements IPaiement {
     public Paiement ajouterPaiement(Paiement paiement) {
         return paiementRepository.save(paiement);
     }
-
     @Override
     public void supprimerPaiement(Long id) {
         paiementRepository.deleteById(id);
     }
-
     @Override
-    public Paiement modifierPaiement(Paiement paiement) {
-        return paiementRepository.save(paiement);
-    }
-
+    public Paiement modifierPaiement(Paiement paiement) {return paiementRepository.save(paiement);}
     @Override
-    public List<Paiement> recupererPaiements() {
-        return paiementRepository.findAll();
-    }
-
+    public List<Paiement> recupererPaiements() {return paiementRepository.findAll();}
     @Override
-    public Set<Paiement> findPaiements() {
-        return new HashSet<>(paiementRepository.findAll());
-    }
-
+    public Set<Paiement> findPaiements() {return new HashSet<>(paiementRepository.findAll());}
     @Override
-    public Paiement recupererPaiementById(Long id) {
-        return paiementRepository.findById(id).orElseThrow();
-    }
+    public Paiement recupererPaiementById(Long id) {return paiementRepository.findById(id).orElseThrow();}
 }

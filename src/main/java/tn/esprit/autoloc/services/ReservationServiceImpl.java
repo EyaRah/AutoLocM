@@ -1,5 +1,4 @@
 package tn.esprit.autoloc.services;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.entities.Reservation;
@@ -16,27 +15,22 @@ public class ReservationServiceImpl implements IReservation {
     public Reservation ajouterReservation(Reservation reservation) {
         return reservationRepository.save(reservation);
     }
-
     @Override
     public void supprimerReservation(Long id) {
         reservationRepository.deleteById(id);
     }
-
     @Override
     public Reservation modifierReservation(Reservation reservation) {
         return reservationRepository.save(reservation);
     }
-
     @Override
     public List<Reservation> recupererReservations() {
         return reservationRepository.findAll();
     }
-
     @Override
     public Set<Reservation> findReservations() {
         return new HashSet<>(reservationRepository.findAll());
     }
-
     @Override
     public Reservation recupererReservationById(Long id) {
         return reservationRepository.findById(id).orElseThrow();

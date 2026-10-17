@@ -1,5 +1,4 @@
 package tn.esprit.autoloc.services;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.autoloc.entities.Agence;
@@ -16,27 +15,20 @@ public class AgenceServiceImpl implements IAgence {
     public Agence ajouterAgence(Agence agence) {
         return agenceRepository.save(agence);
     }
-
     @Override
     public void supprimerAgence(Long id) {
         agenceRepository.deleteById(id);
     }
-
     @Override
-    public Agence modifierAgence(Agence agence) {
-        return agenceRepository.save(agence);
-    }
-
+    public Agence modifierAgence(Agence agence) {return agenceRepository.save(agence);}
     @Override
     public List<Agence> recupererAgences() {
         return agenceRepository.findAll();
     }
-
     @Override
     public Set<Agence> findAgences() {
         return new HashSet<>(agenceRepository.findAll());
     }
-
     @Override
     public Agence recupererAgenceById(Long id) {
         return agenceRepository.findById(id).orElseThrow();
