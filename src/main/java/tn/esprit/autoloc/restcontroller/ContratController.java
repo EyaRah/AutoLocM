@@ -1,10 +1,12 @@
 package tn.esprit.autoloc.restcontroller;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.autoloc.entities.Contrat;
 import tn.esprit.autoloc.services.IContrat;
 import java.util.List;
+@Tag(name = "Gestion Contrat")
 @RestController
 @RequestMapping("/api/Contrat")
 @RequiredArgsConstructor
