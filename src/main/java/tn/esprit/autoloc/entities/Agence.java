@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,8 +29,12 @@ public class Agence {
     @Column(nullable = false, length = 20)
     private String telephone;
     @OneToMany(mappedBy = "agence")
+    @JsonIgnore
+
     Set<Employe>  employees = new HashSet<>();
     @OneToMany(mappedBy = "agence")
+    @JsonIgnore
+
     Set<Vehicule>  vehicules = new HashSet<>();
 
 }

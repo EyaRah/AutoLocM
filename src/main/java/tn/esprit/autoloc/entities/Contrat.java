@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +28,11 @@ public class Contrat {
     @Column(nullable = false)
     private boolean valide;
     @OneToOne(mappedBy = "contrat")
+    @JsonIgnore
+
     Reservation reservation;
     @OneToMany(mappedBy = "contrat", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+
     Set<Paiement> paiements = new HashSet<>();
 }

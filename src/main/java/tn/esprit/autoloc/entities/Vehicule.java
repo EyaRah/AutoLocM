@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,9 +35,13 @@ public class Vehicule {
     @Column(nullable = false, length = 20)
     private StatutVehicule statut;
     @ManyToOne
+    @JsonIgnore
+
     Agence agence;
     @OneToMany(mappedBy = "vehicule")
     Set<Reservation> reservations = new HashSet<>();
     @ManyToMany
+    @JsonIgnore
+
     Set<Equipement> equipements = new HashSet<>();
 }

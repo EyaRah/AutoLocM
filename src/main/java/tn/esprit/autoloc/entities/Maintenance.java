@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,5 +24,7 @@ public class Maintenance {
     @Column(nullable = false)
     private String description;
     @ManyToOne
+    @JsonIgnore
+
     Vehicule vehicule;
 }

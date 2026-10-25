@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,8 +26,12 @@ public class Reservation {
     @Column(nullable = false, length = 20)
     private StatutReservation statut;
     @ManyToOne
+    @JsonIgnore
+
     Client client;
     @ManyToOne
+    @JsonIgnore
+
     Vehicule vehicule;
     @OneToOne
     Contrat contrat;

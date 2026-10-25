@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,5 +25,7 @@ public class Employe {
     @Column(nullable = false, length = 20)
     private RoleEmploye role;
     @ManyToOne
+    @JsonIgnore
+
     Agence agence;
 }
